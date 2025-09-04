@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard - Emteey Digital</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+<script>
+  if (localStorage.getItem("loggedIn") !== "true") {
+    location.href = "login.html";
+  }
+  function logout() {
+    localStorage.removeItem("loggedIn");
+    location.href = "login.html";
+  }
+</script>
+
+<!-- Header -->
+<header>
+  <div class="greeting">
+    <span id="greetingText">Good Day 👋</span>
+    <span id="usernameHeader">demo</span>
+  </div>
+  <i class="fas fa-bell"></i>
+</header>
+
+<!-- Main Content -->
+<main class="container">
+  <!-- Wallet Card -->
+  <div class="wallet-card">
+    <h2>Wallet Balance</h2>
+    <div class="balance">
+      <span id="balance">₦2000</span>
+      <i id="toggleEye" class="fas fa-eye"></i>
+    </div>
+    <button class="btn" onclick="logout()">Logout</button>
+  </div>
+
+  <!-- Features -->
+  <h2>Features</h2>
+  <div class="features">
+    <a href="buy.html" class="feature">
+      <i class="fas fa-shopping-cart"></i>
+      <p>Buy Data</p>
+    </a>
+    <a href="transactions.html" class="feature">
+      <i class="fas fa-receipt"></i>
+      <p>History</p>
+    </a>
+    <a href="pricing.html" class="feature">
+      <i class="fas fa-tags"></i>
+      <p>Pricing</p>
+    </a>
+    <a href="contact.html" class="feature">
+      <i class="fas fa-phone"></i>
+      <p>Contact</p>
+    </a>
+    <a href="about.html" class="feature">
+      <i class="fas fa-info-circle"></i>
+      <p>About</p>
+    </a>
+  </div>
+</main>
+
+<script>
+  // Set username
+  document.getElementById("usernameHeader").innerText = localStorage.getItem("username") || "demo";
+
+  // Time-based greeting
+  const hour = new Date().getHours();
+  const greetingMap = hour < 12 ? "Good Morning 🌅" : hour < 18 ? "Good Afternoon ☀️" : "Good Evening 👋";
+  document.getElementById("greetingText").innerText = greetingMap;
+
+  // Wallet Eye Toggle
+  let realBalance = "₦" + (localStorage.getItem("balance") || "2000");
+  let hidden = false;
+  const balanceEl = document.getElementById("balance");
+  const eyeIcon = document.getElementById("toggleEye");
+  balanceEl.innerText = realBalance;
+
+  eyeIcon.addEventListener("click", () => {
+    hidden = !hidden;
+    if (hidden) {
+      balanceEl.innerText = "••••••";
+      eyeIcon.className = "fas fa-eye-slash";
+    } else {
+      balanceEl.innerText = realBalance;
+      eyeIcon.className = "fas fa-eye";
+    }
+  });
+</script>
+</body>
+</html>

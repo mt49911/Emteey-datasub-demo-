@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Register - Emteey Digital</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+<header>
+  <div class="greeting">
+    <span>Join Us 🚀</span>
+    <span>Emteey Digital</span>
+  </div>
+</header>
+
+<main class="container">
+  <div class="account-card">
+    <h2>Register</h2>
+    <input placeholder="Full Name">
+    <input placeholder="Email">
+    <input id="username" placeholder="Username">
+    <input id="password" type="password" placeholder="Password">
+    <button class="btn" onclick="register()">Register</button>
+    <p>Already registered? <a href="login.html">Login</a></p>
+  </div>
+</main>
+
+<script>
+function register(){
+  alert("Registration Successful (Demo Only)");
+  localStorage.setItem("loggedIn","true");
+  localStorage.setItem("lastLogin", new Date().toLocaleString());
+  localStorage.setItem("username", document.getElementById("username").value || "demo");
+  location.href="dashboard.html";
+}
+</script>
+</body>
+</html>

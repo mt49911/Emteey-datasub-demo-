@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - Emteey Digital</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+<header>
+  <div class="greeting">
+    <span>Welcome Back 👋</span>
+    <span>Emteey Digital</span>
+  </div>
+</header>
+
+<main class="container">
+  <div class="account-card">
+    <h2>Login</h2>
+    <input id="username" placeholder="Username">
+    <input id="password" type="password" placeholder="Password">
+    <button class="btn" onclick="login()">Login</button>
+    <p>Don’t have an account? <a href="register.html">Register</a></p>
+  </div>
+</main>
+
+<script>
+function login(){
+  let u=document.getElementById("username").value;
+  let p=document.getElementById("password").value;
+  if(u==="demo" && p==="1234"){
+    localStorage.setItem("loggedIn","true");
+    localStorage.setItem("lastLogin", new Date().toLocaleString());
+    localStorage.setItem("username", u);
+    location.href="dashboard.html";
+  } else {
+    alert("Try demo / 1234");
+  }
+}
+</script>
+</body>
+</html>

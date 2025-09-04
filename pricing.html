@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pricing - Emteey Digital</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+<script>
+if(localStorage.getItem("loggedIn")!=="true"){location.href="login.html";}
+</script>
+
+<header>
+  <div class="greeting">
+    <span>Pricing 💰</span>
+    <span id="usernameHeader">demo</span>
+  </div>
+  <i class="fas fa-bell"></i>
+</header>
+
+<main class="container">
+  <div class="account-card">
+    <h3>MTN</h3>
+    <p>500MB - ₦150</p>
+    <p>1GB - ₦250</p>
+    <p>2GB - ₦450</p>
+  </div>
+  <div class="account-card">
+    <h3>Airtel</h3>
+    <p>500MB - ₦160</p>
+    <p>1GB - ₦260</p>
+    <p>2GB - ₦470</p>
+  </div>
+</main>
+
+<script>
+document.getElementById("usernameHeader").innerText = localStorage.getItem("username") || "demo";
+</script>
+</body>
+</html>

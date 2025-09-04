@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Profile - Emteey Digital</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+<script>
+if(localStorage.getItem("loggedIn")!=="true"){location.href="login.html";}
+function logout(){
+  localStorage.removeItem("loggedIn");
+  location.href="login.html";
+}
+</script>
+
+<!-- Header -->
+<header>
+  <div class="greeting">
+    <span>My Profile 👤</span>
+    <span id="username">User</span>
+  </div>
+  <i class="fas fa-bell"></i>
+</header>
+
+<!-- Container -->
+<div class="container">
+  <h1>Profile</h1>
+
+  <div class="account-card" style="text-align:center;">
+    <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" alt="Avatar" width="80" style="border-radius:50%; margin-bottom:10px;">
+    <h2 id="profileName">User</h2>
+    <p><strong>Username:</strong> <span id="profileUsername">demo</span></p>
+    <p><strong>Last Login:</strong> <span id="lastLogin">--</span></p>
+    <br>
+    <button class="btn" onclick="logout()">Logout</button>
+  </div>
+</div>
+
+<!-- Bottom Navigation -->
+<div class="bottom-nav">
+  <a href="dashboard.html"><i class="fas fa-home"></i><span>Home</span></a>
+  <a href="buy.html"><i class="fas fa-shopping-cart"></i><span>Buy</span></a>
+  <a href="pricing.html"><i class="fas fa-tags"></i><span>Pricing</span></a>
+  <a href="transactions.html"><i class="fas fa-receipt"></i><span>History</span></a>
+  <a href="profile.html" class="active"><i class="fas fa-user"></i><span>Profile</span></a>
+</div>
+
+<script>
+let user = localStorage.getItem("username") || "User";
+document.getElementById("username").innerText = user;
+document.getElementById("profileName").innerText = user;
+document.getElementById("profileUsername").innerText = user;
+document.getElementById("lastLogin").innerText = localStorage.getItem("lastLogin") || "N/A";
+</script>
+</body>
+</html>
